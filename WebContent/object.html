@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>面向对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str = "I'm global";
+		student.prototype.team = "Javascript";
+		function student(id, name, age) {
+			this.id = id;
+			this.name = name;
+			this.age = age;
+		}
+		var s = new student(1, "baiqiang", 20);
+		console.log(s);
+		console.log(typeof true);
+		console.log(typeof s);
+		console.log(typeof student);
+		console.log("--------------------------");
+		/* for(var i=0;i<100;i++){
+			console.log(Math.round(Math.random()*10%10));
+		}
+		var i="1111";
+		console.log(parseInt(i)); */
+		var uniqueID = (function() {
+			var id = 0;
+			return function() {
+				return id++;
+			};
+		})();
+		
+		function showJSON() {    
+		    var user =     
+		    {     
+		        "username":"andy",    
+		        "age":20,    
+		        "info": { "tel": "123456", "cellphone": "98765"},    
+		        "address":    
+		            [    
+		                {"city":"beijing","postcode":"222333"},    
+		                {"city":"newyork","postcode":"555666"}    
+		            ]    
+		    }    
+		   console.log(user.username);    
+		   console.log(user.age);    
+		   console.log(user.info.cellphone);    
+		   console.log(user.address[0].city);    
+		   console.log(user.address[0].postcode);    
+		}
+		showJSON();
+	</script>
+</body>
+</html>

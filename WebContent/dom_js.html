@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM节点</title>
+</head>
+<body>
+
+	<div id="div1">
+		<p id="p1">This is a paragraph.</p>
+		<p id="p2">This is another paragraph.</p>
+		<p>
+			<button onclick="change()">改变</button>
+		</p>
+	</div>
+
+	<script type="text/javascript">
+		function change() {
+			document.body.style.backgroundColor = 'lavender';
+			element.removeChild(para);
+			console.log(node.parentNode);
+		}
+		var para = document.createElement("p");
+		var node = document.createTextNode("This is new.");
+
+		para.appendChild(node);
+		var element = document.getElementById("div1");
+		element.appendChild(para);
+		console.log(element.childNodes[0].nodeValue);
+	</script>
+	
+	<div onmouseover="mOver(this)" onmouseout="mOut(this)"
+		style="background-color: #D94A38; width: 200px; height: 50px; padding-top: 25px; text-align: center;">
+		Mouse Over Me</div>
+
+	<script>
+		function mOver(obj) {
+			obj.innerHTML = "谢谢你"
+		}
+		function mOut(obj) {
+			obj.innerHTML = "把鼠标指针移动到上面"
+		}
+	</script>
+</body>
+</html>

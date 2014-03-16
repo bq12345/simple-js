@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery_1</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<style type="text/css">
+.red {
+	margin: 10px 0 0 10px;
+	background: red;
+	color: #fff;
+	width: 150px;
+	height: 30px;
+	font: 14px Verdana, Arial, Helvetica, sans-serif;
+}
+p{
+margin:0px;
+padding:5px;
+text-align:center;
+background:#e5eecc;
+border:solid 1px #c3c3c3;}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			console.log("Start jQuery");
+			$("#btn").click(function() {
+				$(this).addClass("red");
+				$("#s").html("<b>Hello</b>");
+				$("#s").css("background-color","#aaffaa");
+			});
+
+		});
+
+		(function(){
+			console.log("Start jQuery");
+		})();
+
+		$(document).ready(function() {
+			$("#alink").click(function() {
+				$("#s").animate({
+					height : 'hide',
+					opacity : 'hide'
+				}, 'slow');
+			});
+		});
+	</script>
+
+	<script>
+		(function() {
+			var cx = '001001527439796002115:qccc_ftedty';
+			var gcse = document.createElement('script');
+			gcse.type = 'text/javascript';
+			gcse.async = true;
+			gcse.src = (document.location.protocol == 'https:' ? 'https:'
+					: 'http:')
+					+ '//www.google.com/cse/cse.js?cx=' + cx;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(gcse, s);
+		})();
+	</script>
+	<gcse:search></gcse:search>
+	<form action="http://www.baidu.com/baidu" target="_blank">
+		<table  style="background:#FFFFFF ">
+			<tr>
+				<td><input name=tn type=hidden value=baidu> <a
+					href="http://www.baidu.com/"><img
+						src="http://img.baidu.com/img/logo-80px.gif" alt="Baidu"
+						align="bottom" border="0"></a> <input type=text name=word
+					size=30> <input type="submit" value="百度搜索"></td>
+			</tr>
+		</table>
+	</form>
+	<button id="btn">点击</button>
+
+	<p id="s"></p>
+	<a id="alink">链接</a>
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var o = {
+			name : "小明",
+			age : 22,
+			city : "杭州",
+			hobby : [ "电影", "旅游" ],
+			sister : [ {
+				name : "小红",
+				age : 25,
+				job : "经理"
+			}, {
+				name : "小兰",
+				age : 23,
+				job : "教师"
+			} ]
+		};
+		console.log(o.sister[1].job);
+		var str='{"name":"小明","age":22,"city" : "杭州"}';
+		console.log(JSON);
+		var s=JSON.parse(str);
+		console.log(s.name);
+		
+	</script>
+	<a href="index.html" onclick="javascript:alert('即将跳转');">链接</a>
+</body>
+</html>

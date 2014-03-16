@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>String in use</title>
+<style type="text/css">
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+#first {
+	float: left;
+	margin-left: -310px;
+	width: 100px;
+	height: 150px;
+	background: #ff32ff;
+}
+
+#second {
+	float: left;
+	margin-left: -310px;
+	margin-top: 160px;
+	width: 100px;
+	height: 150px;
+	background: #ffff00;
+}
+
+div.container {
+	float: left;
+}
+
+#third {
+	margin-left: 110px;
+	width: 200px;
+	height: 310px;
+	background: #CC0000;
+}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var s = "Hello,BaiQiang";
+
+		console.log(s.length);
+		console.log(s.charAt(6));
+		console.log(s.charCodeAt(7));
+		console.log(s.substring(0, 5));
+		console.log(s.slice(0, -5));
+		console.log(s.indexOf("Bai"));
+		console.log(s.search(/,([a-z]+)/));
+		console.log(s.split(","));
+		console.log(s.toLowerCase());
+		console.log(s.toUpperCase());
+		var date = new Date();
+		function inherit(p) {
+			if (p == null)
+				throw TypeError();
+			if (Object.create)
+				return Object.create(p);
+			var t = typeof p;
+			if (t !== "object" && t !== "function")
+				throw TypeError();
+			function f() {
+			}
+			;
+			f.prototype = p;
+			return new f();
+		}
+		console.log(inherit(date));
+	</script>
+	<div class="container">
+		<div id="third"></div>
+	</div>
+	<div id="second"></div>
+	<div id="first"></div>
+</body>
+</html>

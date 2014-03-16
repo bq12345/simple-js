@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>WindowUse</title>
+</head>
+<body>
+	<script type="text/javascript">
+		window.status = "Hello BaiQiang";
+		var result = window.confirm("Are you sure?");
+		if (!result) {
+			window.close();
+		}
+		var x = navigator;
+		console.log("CodeName=" + x.appCodeName);
+		console.log("MinorVersion=" + x.appMinorVersion);
+		console.log("Name=" + x.appName);
+		console.log("Version=" + x.appVersion);
+		console.log("CookieEnabled=" + x.cookieEnabled);
+		console.log("CPUClass=" + x.cpuClass);
+		console.log("OnLine=" + x.onLine);
+		console.log("Platform=" + x.platform);
+		console.log("UA=" + x.userAgent);
+		console.log("BrowserLanguage=" + x.browserLanguage);
+		console.log("SystemLanguage=" + x.systemLanguage);
+		console.log("UserLanguage=" + x.userLanguage);
+		console.log(result);
+
+		console.log();
+		console.log();
+		console.log("Screen resolution: " + screen.width + "*" + screen.height);
+		
+	</script>
+		<button onclick="location='index.html'">跳转到首页</button>
+		<button onclick="console.log(window.location.pathname)">显示页面URL</button>
+		<button onclick="location.reload()">刷新</button>
+		
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery_2</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<style type="text/css">
+.red {
+	margin: 10px 0 0 10px;
+	background: red;
+	color: #fff;
+	width: 150px;
+	height: 30px;
+	font: 14px Verdana, Arial, Helvetica, sans-serif;
+}
+
+p {
+	margin: 0px;
+	padding: 5px;
+	text-align: center;
+	background: #e5eecc;
+	border: solid 1px #c3c3c3;
+}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			console.log("Start jQuery");
+			$("#btn").click(function() {
+				//$("#panel").slideToggle("slow");
+				$("div").animate({
+					left : '250px',
+					opacity : '0.5',
+					height : '150px',
+					width : '550px'
+				}, "slow");
+				$("div").animate({
+					fontSize : "3em"
+				}, "slow");
+				$("div").animate({
+					left : '250px',
+					opacity : '-=-0.3',
+					height : '-=150px',
+					width : '-= 350px'
+				}, "slow", function() {
+					console.log("Animate stoped!!");
+				});
+			});
+		});
+	</script>
+
+	<button id="btn">点击</button>
+	<div id="panel">This is a panel.</div>
+	<p id="s"></p>
+	<a id="alink">链接</a>
+
+
+</body>
+</html>

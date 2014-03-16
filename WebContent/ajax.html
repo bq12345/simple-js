@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XMLHttpRequest</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	var httpRequest;
+	if (window.XMLHttpRequest) {
+		httpRequest = new XMLHttpRequest();
+	} else {
+		if (window.ActiveXObject) {
+			httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+		} else {
+			throw Error("Can't create XMLHttpRequest!!!");
+		}
+	}
+	function getData(url, callback) {
+		httpRequest.open("GET", url);
+		httpRequest.onreadystatechange = function() {
+			if (httpRequest.readyState == 4 && callback) {
+				callback(httpRequest.responseText);
+			}
+		}
+		httpRequest.send(null);
+	}
+	var callback = function(text) {
+
+		var w = JSON.parse(text);
+		var weather = document.getElementById("weather");
+		weather.innerHTML = "城市：" + w.weatherinfo.city + "<br>" + "最低温度："
+				+ w.weatherinfo.temp1 + "<br>" + "最高温度：" + w.weatherinfo.temp2;
+	}
+	function getAddress(url, callback) {
+		var data = document.getElementById("mobile").value;
+		httpRequest.open("GET", url + data);
+		httpRequest.onreadystatechange = function() {
+			if (httpRequest.readyState == 4 && callback) {
+				callback(httpRequest.responseText);
+			}
+		}
+		httpRequest.send(null);
+	}
+	var callbackAddress = function(text) {
+		console.log(text);
+		text = new String(text);
+		var start = text.indexOf("(", 0);
+		var end = text.lastIndexOf(")", start);
+		text = text.substring(start + 1, text.length + end);
+
+		console.log(start);
+		console.log(end);
+		console.log(text);
+		var w = JSON.parse(text);
+		var show = document.getElementById("mobileShow");
+		show.innerHTML = "城市：" + new String(w.province) + "<br>" + "运营商："
+				+ w.corp;
+	}
+	function getLocation(url, callback) {
+		var data = document.getElementById("address").value;
+		httpRequest.open("GET", url + data);
+		httpRequest.onreadystatechange = function() {
+			if (httpRequest.readyState == 4 && callback) {
+				callback(httpRequest.responseText);
+			}
+		}
+		httpRequest.send(null);
+	}
+	var callbackLocation = function(text) {
+		console.log(text);
+		var w = JSON.parse(text);
+		var local = document.getElementById("locationShow");
+		local.innerHTML = "地名：" + w.address + "<br>" + "城市：" + w.cityName
+				+ "<br>" + "地理级别：" + w.level + "级" + "<br>" + "经度：" + w.lon
+				+ "<br>" + "纬度：" + w.lat;
+	}
+	function getMusic(url, callback) {
+		var data = document.getElementById("qq").value;
+		httpRequest.open("GET",
+				"http://qzone-music.qq.com/fcg-bin/cgi_playlist_xml.fcg?uin="
+						+ data + "&json=1&g_tk=1916754934");
+		httpRequest.onreadystatechange = function() {
+			if (httpRequest.readyState == 4 && callback) {
+				callback(httpRequest.responseText);
+			}
+		}
+		httpRequest.send(null);
+	}
+	var callbackMusic = function(text) {
+		text = new String(text);
+		var start = text.indexOf("(", 0);
+		var end = text.lastIndexOf(")", start);
+		text = text.substring(start + 1, text.length + end);
+		console.log(text);
+		var w = eval('(' + text + ')');
+		var music = document.getElementById("musicShow");
+		var strBuffer = "";
+		for (var i = 0; i < w.qqmusic.playlist.song.length; i++) {
+			strBuffer = strBuffer + "歌曲名："
+					+ w.qqmusic.playlist.song[i].xsong_name + "<br />" + "艺术家："
+					+ w.qqmusic.playlist.song[i].xsinger_name + "<br />"
+					+ "歌曲链接：" + "<a target='_blank' onclick ='go(this)'>"
+					+ w.qqmusic.playlist.song[i].xsong_url + "</a>" + "<br />";
+		}
+		music.innerHTML = strBuffer;
+	}
+	function go(e) {
+		console.log(e);
+		e.href = e.innerHTML;
+	}
+	
+	window.onload=function searchMusicList() {
+		var src = "http://kuang.xiami.com/app/nineteen/search/key/"
+				+ encodeURIComponent("我的歌声里")
+				+ "/diandian/1/page/1?_=" + new Date().getTime()
+				+ "&callback=getXiamiData";
+		httpRequest.open("GET",src);
+		httpRequest.onreadystatechange = function() {
+			if (httpRequest.readyState == 4 ) {
+				console.log(httpRequest.responseText);
+				//callback(httpRequest.responseText);
+			}
+		}
+		httpRequest.send(null);
+	}
+	
+</script>
+
+<body>
+	<div class="hero-unit">
+		<button class="btn"
+			onclick="getData('http://www.weather.com.cn/data/cityinfo/101110101.html', callback)">获得西安天气</button>
+
+		<br />
+		<p id="weather"></p>
+		<br /> <br /> <input id="mobile" type="number" placeholder="请输入手机号码"
+			value="18740414439" />
+		<button class="btn"
+			onclick="getAddress('http://cz.115.com/?ct=index&ac=get_mobile_local&callback=jsonp1333962541001&mobile=', callbackAddress)">得到手机归属地</button>
+		<p id="mobileShow"></p>
+		<br /> <input id="address" type="text" value="子洲县"
+			placeholder="请输入地名" />
+		<button class="btn"
+			onclick="getLocation('http://gc.ditu.aliyun.com/geocoding?a=', callbackLocation)">得到地理信息</button>
+		<p id="locationShow"></p>
+
+		<input id="qq" type="number" placeholder="请输入QQ号码" value="1075707996" />
+		<button class="btn" onclick="getMusic('', callbackMusic)">得到空间音乐</button>
+		<p id="musicShow"></p>
+
+	</div>
+
+</body>
+</html>

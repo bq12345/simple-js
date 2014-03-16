@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Set</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<script type="text/javascript" src="set.js"></script>
+</head>
+<body>
+<button id="_btn" class="btn" style=" position:absolute;left: 110px; top: 5px;margin-left: 5px;" >点击</button>
+<script type="text/javascript">
+	function addprivateProperty(o,name,predicate){
+		var value;
+		o["get"+name]=function(){return value;};
+		o["set"+name]=function(v){
+			if((predicate)&&!predicate(v)){
+				throw Error("Invalid name");
+			}
+			else{
+				value=v;
+			}
+		};		
+	}
+	var o={};
+	addprivateProperty(o, "Name", function(x){return typeof x=="string";});
+	o.setName("BaiQiang");
+	console.log(o.getName());
+	var set=new Set();
+	set.add("Baiqiang","12345",true,true,1254);
+	set.foreach();
+	console.log(set.size());
+	var btn=document.getElementById("_btn");
+	console.log("button:"+btn);
+	btn.addEventListener("click", function(){	window.alert("Alert");}, false);
+</script>
+	
+</body>
+</html>

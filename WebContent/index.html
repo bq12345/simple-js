@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>日期</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link rel="shortcut icon" href="ico/favicon.png">
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap-transition.js"></script>
+<script src="js/bootstrap-alert.js"></script>
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-dropdown.js"></script>
+<script src="js/bootstrap-scrollspy.js"></script>
+<script src="js/bootstrap-tab.js"></script>
+<script src="js/bootstrap-tooltip.js"></script>
+<script src="js/bootstrap-popover.js"></script>
+<script src="js/bootstrap-button.js"></script>
+<script src="js/bootstrap-collapse.js"></script>
+<script src="js/bootstrap-carousel.js"></script>
+<script src="js/bootstrap-typeahead.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		function show() {
+			var mydate = new Date();
+			var str = "" + mydate.getFullYear() + "年";
+			str += (mydate.getMonth() + 1) + "月";
+			str += mydate.getDate() + "日&nbsp;&nbsp;<br/>";
+			str += mydate.toLocaleTimeString();
+			str += ":" + mydate.getMilliseconds() + "&nbsp;&nbsp;<br/>星期";
+			str += "天一二三四五六".charAt(mydate.getDay()) + "<br/>";
+			//console.log(str);
+			/* with (document) {
+				write(str);
+			} */
+		}
+		//setInterval(show, 1520);
+	</script>
+	<header>
+		<div class="hero-unit">
+			<div>
+				<button class="btn"
+					onclick="window.open('index.html', '弹出的窗口', 'height=300, width=450,toolbar=no', '')">新窗口</button>
+			</div>
+			<script type="text/javascript">
+				function max() {
+					var i, max = this[0];
+					for (i = 1; i < this.length; i++) {
+						if (max < this[i])
+							max = this[i];
+				}
+					return max;
+				}
+				Array.prototype.max = max;
+				var array = new Array(10);
+				array[1] = "bai";
+				array[0] = "qiang";
+				array[2] = 12;
+				array[3] = true;
+				console.log(array.join("---"));
+				array.sort();
+				console.log(array.join("***"));
+				var lessArray = array.slice(0, 2);
+				console.log(lessArray.join("---"));
+				console.log(array.max());
+				for(o in array){
+					console.log(array[o]);
+				}
+			</script>
+		</div>
+	</header>
+
+
+
+</body>
+</html>

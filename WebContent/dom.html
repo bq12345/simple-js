@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM</title>
+<script type="text/javascript">
+	function check() {
+		document.getElementById("first").action="index.html";
+		return false;
+	}
+</script>
+</head>
+<body onmousedown="whichButton(event)">
+	<button onclick="change()">点击</button>
+	<div id="div"></div>
+	<form action="#" name="main" id="first" onsubmit="return check()">
+		<textarea rows="15" cols="100" id="text" draggable="true"
+			spellcheck="true"></textarea>
+		<input type="submit" value="提交" />
+	</form>
+	<script type="text/javascript">
+		document.oncontextmenu = function(event) {
+			var btnNum = event.button;
+			if (btnNum == 2) {
+				console.log("您点击了鼠标右键！")
+				return false;
+			} else {
+				return true;
+			}
+		}
+		function whichButton(event) {
+			var btnNum = event.button;
+			if (btnNum == 2) {
+				console.log("您点击了鼠标右键！")
+			} else if (btnNum == 0) {
+				x = event.clientX
+				y = event.clientY
+				console.log();
+				console.log("您点击了鼠标左键！" + x + "--" + y);
+			} else if (btnNum == 1) {
+				console.log("您点击了鼠标中键！");
+			} else {
+				console.log("您点击了" + btnNum + "号键，我不能确定它的名称。");
+			}
+		}
+
+		function change() {
+			with (document) {
+				getElementById("div").innerHTML = "<p><b>Hello,BQ</b></>";
+				getElementById("text").focus();
+				getElementById("text").accessKey = "w";
+			}
+		}
+		console.log(document.title);
+		console.log(document.URL);
+		console.log(document.forms[0].name);
+		console.log();
+	</script>
+</body>
+</html>

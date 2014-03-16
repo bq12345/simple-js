@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery_dom</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<style type="text/css">
+.red {
+	margin: 10px 0 0 10px;
+	background: red;
+	color: #fff;
+	width: 150px;
+	height: 30px;
+	font: 14px Verdana, Arial, Helvetica, sans-serif;
+}
+p {
+	margin: 0px;
+	padding: 5px;
+	text-align: center;
+	background: #e5eecc;
+	border: solid 1px #c3c3c3;
+}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			console.log($("#panel").attr("id"));
+			console.log($("#panel").attr("title"));
+			console.log($("#panel").attr("class"));
+			$("p").prepend("Some prepended text.");
+		});
+	</script>
+
+	<button id="btn" >点击</button>
+	<div id="panel" title="hello" class="red">This is a panel.</div>
+	<p id="s"></p>
+	<a id="alink">链接</a>
+
+
+</body>
+</html>
