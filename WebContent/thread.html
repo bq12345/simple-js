@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>消息队列</title>
+<script type="text/javascript">
+	var thread_one_time = 0;
+	var thread_two_time = 0;
+	function thread_one() {
+		thread_one_time++;
+		console.log("thread_one_time:"+thread_one_time);
+	}
+
+	function thread_two() {
+		thread_two_time++;
+		console.log("thread_two_time:"+thread_two_time);
+	}
+	setInterval(thread_one, 500);
+	setInterval(thread_two, 500);
+</script>
+</head>
+<body>
+
+</body>
+</html>
