@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Property</title>
+<script type="text/javascript">
+	var date=new Date();
+	console.log(classof(date));
+	function classof(o){
+		if(o===null) return "Null";
+		if(o===undefined) return "Undefined";
+		//本来没有Object.prototype.toString但是调用
+		console.log(o.c);
+		return Object.prototype.toString.call(o).slice(8,-1);
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

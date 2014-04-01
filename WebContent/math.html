@@ -1,36 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
-<title>Math</title>
+<title>Math&String</title>
 </head>
-<body>
 
-<script type="text/javascript">
-	Math.abs(-6);
-	var i=parseInt(Math.round(Math.random()));
-	console.log(i);
-	console.log(Math.cos(0.75));
-	var x=0.3-0.2;
-	var y=0.4-0.3;
-	console.log(x);
-	console.log(y);
-	console.log(x.toFixed(2));
-	console.log(NaN==NaN);
-	
-	(function a(){
-		var i=0;
-		if(i>2){
-			var j=2;
-		}
-		console.log(j);
-		console.log(i);
-		//undefined不是关键字
-	})();
-	console.log(3+"3");
-	console.log(3*"3");
-	console.log(3-"3");
-	
-</script>
+<body>
+	<script type="text/javascript">
+            Math.abs( - 6);
+            var i = parseInt(Math.round(Math.random()));
+            console.log(i);
+            console.log(Math.cos(0.75));
+            var x = 0.3 - 0.2;
+            var y = 0.4 - 0.3;
+            console.log(x);
+            console.log(y);
+            console.log(x.toFixed(2));
+            console.log(NaN == NaN);
+
+            (function a() {
+                var i = 0;
+                if (i > 2) {
+                    var j = 2;
+                }
+                console.log(j);
+                console.log(i);
+                //undefined不是关键字
+            })();
+            console.log(3 + "3");
+            console.log(3 * "3");
+            console.log(3 - "3");
+            var o = {
+                x: 1,
+                y: "baiqiang"
+            };
+            console.log("x" in o);
+            console.log("z" in o);
+
+            var str = "afaqfwfaknfsaklnfaskfljlasfasfsafsafawwfrwafasjlkfsanfklasnflkas";
+            var obj = {};
+            var array=new Array();
+            for (var i = 0; i < str.length; i++) {
+                var key = str[i];　　
+                if (!obj[key]) {　　obj[key] = 1;array.push(str[i]);　　
+                } else {　　obj[key]++;　　
+                }
+            }
+            console.log(array);
+            var max = 0;
+            var cha;
+            for (var p in obj) {
+                if (parseInt(obj[p]) > max) {
+                    max = parseInt(obj[p]);
+                    cha = p;
+                }
+            }
+            console.log(cha + ":" + max);
+        </script>
 </body>
+
 </html>

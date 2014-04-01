@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>笔试</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+	</script>
+	<script type="text/javascript">
+		/* 现有一个Page类，其原型对象上有许多以post开头方法（如postMsg）；
+		另有一拦截函数check，只返回true或false。
+		请设计一个函数，该函数应批量改造原Page的postXXX方法，
+		在保留其原有功能的同时，为每个postXXX方法增加拦截验证功能，
+		当check()返回true时继续执行原postXXX方法，
+		返回false时不再执行原postXXX方法。 */
+		function Page() {
+		};
+		Page.prototype.postMsg = function() {
+			console.log("postMsg");
+		};
+		Page.prototype.check = function(bool) {
+			return bool > 0 ? true : false;
+		};
+		var p = new Page();
+		console.log(p.check(3));
+		for (items in p) {
+			if ((typeof p[items] == "function") && items.indexOf("post") >= 0) {
+				if (p.check(3)) {
+					var o = {};
+					var temp = p[items].apply(o, p);
+					console.log(temp);
+				} else {
+					continue;
+				}
+			}
+		}
+	</script>
+</body>
+</html>

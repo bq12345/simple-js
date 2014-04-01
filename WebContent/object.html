@@ -7,14 +7,15 @@
 <body>
 	<script type="text/javascript">
 		var str = "I'm global";
-		student.prototype.team = "Javascript";
-		function student(id, name, age) {
+		Student.prototype.team = "Javascript";
+		function Student(id, name, age) {
 			this.id = id;
 			this.name = name;
 			this.age = age;
 		}
-		var s = new student(1, "baiqiang", 20);
-		console.log(s);
+		var s = new Student(1, "baiqiang", 20);
+		console.log(s.toString());
+		console.log(s.team);
 		console.log(typeof true);
 		console.log(typeof s);
 		console.log(typeof student);

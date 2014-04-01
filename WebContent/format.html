@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>代码高亮</title>
+</head>
+<body>
+<h1><!-- CoolFormat Source Formatter http://blog.csdn.net/akof1314 --></h1>
+
+<p>&nbsp;Java Code&nbsp;</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+	<tbody>
+		<tr>
+			<td style="background-color:#e3e3e3; vertical-align:text-top">
+			<p>1<br />
+			2<br />
+			3<br />
+			4<br />
+			5<br />
+			6<br />
+			7<br />
+			8<br />
+			9<br />
+			10<br />
+			11<br />
+			12<br />
+			13<br />
+			14<br />
+			15<br />
+			16<br />
+			17<br />
+			18<br />
+			19<br />
+			20<br />
+			21<br />
+			22<br />
+			23<br />
+			24<br />
+			25<br />
+			26<br />
+			27<br />
+			28<br />
+			29<br />
+			30<br />
+			31<br />
+			32<br />
+			33<br />
+			34<br />
+			35<br />
+			36<br />
+			37<br />
+			38<br />
+			39<br />
+			40<br />
+			41<br />
+			42<br />
+			43<br />
+			44<br />
+			45<br />
+			46<br />
+			47<br />
+			48<br />
+			49<br />
+			50<br />
+			51<br />
+			52<br />
+			53<br />
+			54<br />
+			55</p>
+			</td>
+			<td style="background-color:#008284">&nbsp;</td>
+			<td style="background-color:#efefef; vertical-align:text-top; width:100%">
+			<p>/**<br />
+			&nbsp;*&nbsp;Copyright&nbsp;(c)&nbsp;2014.&nbsp;Designed&nbsp;By&nbsp;BaiQiang.<br />
+			&nbsp;*/<br />
+			package&nbsp;org.bq.sort;<br />
+			<br />
+			/**<br />
+			&nbsp;*&nbsp;@author&nbsp;白强<br />
+			&nbsp;*&nbsp;@version&nbsp;1.0<br />
+			&nbsp;*/<br />
+			public&nbsp;class&nbsp;SimpleQuick&nbsp;{<br />
+			<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args)&nbsp;{<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int[]&nbsp;a&nbsp;=&nbsp;{&nbsp;5,&nbsp;4,&nbsp;3,&nbsp;1,&nbsp;8&nbsp;};<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;调用快速排序算法<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSort(a,&nbsp;0,&nbsp;a.length&nbsp;-&nbsp;1);<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;打印排序后的元素<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;:&nbsp;a)&nbsp;{<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(i&nbsp;+&nbsp;&quot;\t&quot;);<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+			<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;核心方法<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;static&nbsp;void&nbsp;quickSort(int[]&nbsp;a,&nbsp;int&nbsp;low,&nbsp;int&nbsp;high)&nbsp;{<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;q;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;分治法思想的应用<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;当快速排序的递归调用可以进行<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(low&nbsp;&lt;&nbsp;high)&nbsp;{<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;用补坑法完成一次排序并再次递归<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q&nbsp;=&nbsp;partition(a,&nbsp;low,&nbsp;high);<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSort(a,&nbsp;low,&nbsp;q&nbsp;-&nbsp;1);<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSort(a,&nbsp;q&nbsp;+&nbsp;1,&nbsp;high);<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+			<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;/**<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;进行两次查找，从后往前和从前往后&nbsp;找到比基准小或比基准大的数就把基准数插入到那儿&nbsp;最后剩一个坑，把基准数填入即可&nbsp;返回坑的位置<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;static&nbsp;int&nbsp;partition(int[]&nbsp;a,&nbsp;int&nbsp;low,&nbsp;int&nbsp;high)&nbsp;{<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;temp&nbsp;=&nbsp;a[low];<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(low&nbsp;&lt;&nbsp;high)&nbsp;{<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(low&nbsp;&lt;&nbsp;high&nbsp;&amp;&amp;&nbsp;a[high]&nbsp;&gt;&nbsp;temp)&nbsp;{<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;high--;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[low]&nbsp;=&nbsp;a[high];<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(low&nbsp;&lt;&nbsp;high&nbsp;&amp;&amp;&nbsp;a[low]&nbsp;&lt;&nbsp;temp)&nbsp;{<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low++;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[high]&nbsp;=&nbsp;a[low];<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[low]&nbsp;=&nbsp;temp;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;low;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+			<br />
+			}</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+</body>
+</html>

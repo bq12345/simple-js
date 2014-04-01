@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>getElementsByClassName</title>
+<style type="text/css">
+.test_box {
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+	width: 800px;
+	margin: 40px auto;
+	background: #f0f3f9;
+	height: 200px;
+}
+
+.list_one {
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+	box-flex: 1;
+	background: #ff9;
+}
+
+.list_two {
+	-moz-box-flex: 2;
+	-webkit-box-flex: 2;
+	box-flex: 2;
+	background: #f00;
+}
+</style>
+</head>
+<body>
+	<div class="test_box">
+		<div class="list list_two">1</div>
+		<div class="list list_one">2</div>
+		<input type="date" id="d" value="2011-05-04">
+		<script type="text/javascript">
+			function getClass(className) {
+				if (document.getElementsByName) {
+					return document.getElementsByClassName(className);
+				} else {
+					var children = document.getElementsByTagName('*');
+					var elements = new Array();
+					for (var i = 0; i < children.length; i++) {
+						var child = children[i];
+						var classNames = child.className.split(' ');
+						for (var j = 0; j < classNames.length; j++) {
+							if (classNames[j] == className) {
+								elements.push(child);
+								break;
+							}
+						}
+					}
+					return elements;
+				}
+			}
+			var selector=document.querySelectorAll('.list').length;
+			var className = getClass('list')[0].innerText;
+			var idName = document.getElementById('d').value;
+			console.log(className);
+			console.log(idName);
+			console.log(selector);
+			
+			
+		</script>
+	</div>
+</body>
+</html>

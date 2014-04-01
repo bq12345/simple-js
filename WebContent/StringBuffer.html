@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>String in use</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var s = "Hello,BaiQiang";
+		function StringBuffer() {
+			this.__strings__ = new Array();
+		}
+		StringBuffer.prototype.append = function(str) {
+			this.__strings__.push(str);
+		}
+		StringBuffer.prototype.toString = function() {
+			return this.__strings__.join("");
+		}
+	</script>
+</body>
+</html>

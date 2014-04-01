@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	display: inline;
+	border-radius: 1px;
+}
+
+a {
+	border-radius: 2px;
+	background-color: #00f;
+	color: #FFF;
+	border: 1px solid #96CAF0;
+}
+</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>月销售</li>
+			<li><a href="#">10000以下</a> <input type="checkbox"></li>
+			<li><a href="#">10000-20000</a> <input type="checkbox"></li>
+			<li><a href="#">30000-50000</a> <input type="checkbox">
+			</li>
+			<li><a href="#">50000以上</a> <input type="checkbox"></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		(function parse(s) {
+			var ss = s.split(" ");
+			var arr = new Array();
+			for ( var i in ss) {
+				var temp = ss[i].replace(/(.).*\1/g, "$1");
+				arr.push(temp);
+			}
+			console.log(arr);
+			var result = arr.join(" ");
+			console.log(result);
+		}('aaaccbb bb cc dddd'));
+	</script>
+
+</body>
+</html>

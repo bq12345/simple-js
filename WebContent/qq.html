@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+.test_box {
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+	width: 800px;
+	margin: 40px auto;
+	background: #f0f3f9;
+	height: 200px;
+}
+
+.list_one {
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+	box-flex: 1;
+	background: #ff9;
+}
+
+.list_two {
+	-moz-box-flex: 2;
+	-webkit-box-flex: 2;
+	box-flex: 2;
+	background: #f00;
+}
+</style>
+</head>
+<body>
+	<div class="test_box">
+		<div class="list list_two">1</div>
+		<div class="list list_one">2</div>
+		<input type="datetime-local">
+		<script type="text/javascript">
+			window.parent.postMessage({
+				type : 'resize',
+				data : {
+					width : 854,
+					height : 470
+				}
+			}, '*');
+			var _$ = [
+					"\x6e\x6f\x77",
+					"\x74\x69\x70\x73",
+					"",
+					"",
+					"\u8c8c\u4f3c\u6709\u70b9\u53cd\u5e94\u4e86\u2026",
+					"\u65f6\u95f4\u5728\u53d8\u6162\u2026",
+					"\u4f60\u4eca\u5929\u7684\u72b6\u6001\u5f88\u597d\u54e6\uff0c\u518d\u575a\u6301\u4e00\u4e0b\u2026",
+					"\u606d\u559c\u4f60\u9759\u6b62\u4e86\u65f6\u95f4\uff01",
+					'\x3a',
+					'\x3a',
+					"\x70\x6f\x77\x65\x72",
+					"\x6e\x6f\x77",
+					"",
+					"",
+					"\x70\x6f\x77\x65\x72\x54\x69\x6d\x65\x3a",
+					'\x63\x68\x65\x63\x6b\x41\x6e\x73\x77\x65\x72',
+					'\x2a',
+					'\x6d\x65\x73\x73\x61\x67\x65',
+					'\x63\x68\x65\x63\x6b\x52\x65\x73\x75\x6c\x74',
+					'\u7b54\u6848\u9519\u8bef\uff0c\u672a\u80fd\u901a\u8fc7\u672c\u5173\u8003\u9a8c' ];
+			var a = (function() {
+				var b;
+				var c = (function() {
+					var f = document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"]
+							(_$[0]);
+					var g = document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"]
+							(_$[1]);
+					var h = [ _$[2], _$[3], _$[4], _$[5], _$[6], _$[7] ];
+					return {
+						showTime : function(i, j, k) {
+							f["\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c"] = i
+									+ _$[8] + j + _$[9] + k
+						},
+						tips : function(i) {
+							g["\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c"] = h[i]
+						}
+					}
+				})();
+				var d = {
+					getTime : function() {
+						var f = new Date();
+						var g = f["\x67\x65\x74\x48\x6f\x75\x72\x73"]();
+						var h = f["\x67\x65\x74\x4d\x69\x6e\x75\x74\x65\x73"]();
+						var i = f["\x67\x65\x74\x53\x65\x63\x6f\x6e\x64\x73"]();
+						c["\x73\x68\x6f\x77\x54\x69\x6d\x65"](g, h, i);
+						e["\x69\x6e\x69\x74"]()
+					}
+				};
+				var e = (function() {
+					var f = document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"]
+							(_$[10]);
+					var g = document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"]
+							(_$[11]);
+					var h = 0x0;
+					var i = 0x0;
+					return {
+						init : function() {
+							if (h < 0x0)
+								return;
+							var j = parseInt(g["\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c"]["\x72\x65\x70\x6c\x61\x63\x65"]
+									(/[:]/g, _$[12]));
+							var k = parseInt(f["\x76\x61\x6c\x75\x65"]["\x72\x65\x70\x6c\x61\x63\x65"]
+									(/[:]/g, _$[13]));
+							if (Math["\x61\x62\x73"](k - j) <= 0x1) {
+								if (i != 0x0) {
+									if (k - i != 0x1) {
+										h = 0x0;
+										i = 0x0;
+										c["\x74\x69\x70\x73"](h);
+										return
+									}
+								}
+								;
+								i = k;
+								h++;
+								c["\x74\x69\x70\x73"](h)
+							}
+							;
+							if (h == 0x5) {
+								h = -0x1;
+								clearTimeout(b);
+								window["\x70\x61\x72\x65\x6e\x74"]["\x70\x6f\x73\x74\x4d\x65\x73\x73\x61\x67\x65"]
+										({
+											type : _$[15],
+											data : true
+										}, _$[16])
+							}
+						}
+					}
+				})();
+				return {
+					init : function() {
+						b = setInterval(d["\x67\x65\x74\x54\x69\x6d\x65"],
+								5000)
+					}
+				}
+			})();
+			window["\x6f\x6e\x6c\x6f\x61\x64"] = function() {
+				a["\x69\x6e\x69\x74"]();
+				window["\x61\x64\x64\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72"]
+						(_$[17], function(b) {
+							b = b["\x64\x61\x74\x61"];
+							if (b["\x74\x79\x70\x65"] == _$[18]) {
+								if (b["\x65\x72\x72\x4d\x73\x67"]) {
+									alert(_$[19])
+								}
+							}
+						}, false)
+			}
+			$(".framePaper").contentWindow.clearInterval(1);
+		</script>
+	</div>
+</body>
+</html>

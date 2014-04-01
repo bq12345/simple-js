@@ -5,114 +5,93 @@
 <title>Animate</title>
 </head>
 <body>
-<script type="text/javascript">
-	function shake(e,distance,time){
-		if(typeof e==="string")
-			e=document.getElementById(e);
-		if(!time){
-			time=500;
-		}
-		if(!distance){
-			distance=10;
-		}
-		var originalStyle=e.style.cssText;
-		e.style.position="relative";
-		var start=(new Date()).getTime();
-		animate();
-		function animate(){
-			var now=(new Date()).getTime();
-			var elapsed=now-start;
-			var fraction=elapsed/time;
-			if(fraction<1){
-				var x=distance*Math.sin(fraction*4*Math.PI);
-				e.style.left=x+"px";
-				setTimeout(animate, Math.min(25,time-elapsed));
+	<script type="text/javascript">
+		function shake(e, distance, time) {
+			if (typeof e === "string")
+				e = document.getElementById(e);
+			if (!time) {
+				time = 500;
 			}
-			else{
-				e.style.cssText=originalStyle;
+			if (!distance) {
+				distance = 10;
 			}
-		}
-	}
-	function fadeIn(e,time){
-		if(typeof e==="string")
-			e=document.getElementById(e);
-		if(!time){
-			time=2000;
-		}
-	
-		var ease=Math.sqrt;
-	
-		var start=(new Date()).getTime();
-		animate();
-		function animate(){
-			var now=(new Date()).getTime();
-			var elapsed=now-start;
-			var fraction=elapsed/time;
-			if(fraction<1){
-				var opacity=1-ease(fraction);
-				
-				e.style.opacity=String(opacity);
-				
-				setTimeout(animate, Math.min(25,time-elapsed));
+			var originalStyle = e.style.cssText;
+			e.style.position = "relative";
+			var start = (new Date()).getTime();
+			animate();
+			function animate() {
+				var now = (new Date()).getTime();
+				var elapsed = now - start;
+				var fraction = elapsed / time;
+				if (fraction < 1) {
+					var x = distance * Math.sin(fraction * 4 * Math.PI);
+					e.style.left = x + "px";
+					setTimeout(animate, Math.min(25, time - elapsed));
+				} else {
+					e.style.cssText = originalStyle;
+				}
 			}
 		}
-	}
-	function fadeOut(e,time){
-		if(typeof e==="string")
-			e=document.getElementById(e);
-		if(!time){
-			time=2000;
-		}
-	
-		var originalStyle=e.style.cssText;
-		var ease=Math.sqrt;
-	
-		var start=(new Date()).getTime();
-		animate();
-		function animate(){
-			var now=(new Date()).getTime();
-			var elapsed=now-start;
-			var fraction=elapsed/time;
-			if(fraction<1){
-				var opacity=ease(fraction);
-				e.style.opacity=String(opacity);
-				setTimeout(animate, Math.min(25,time-elapsed));
+		function fadeIn(e, time) {
+			if (typeof e === "string")
+				e = document.getElementById(e);
+			if (!time) {
+				time = 2000;
+			}
+
+			var ease = Math.sqrt;
+
+			var start = (new Date()).getTime();
+			animate();
+			function animate() {
+				var now = (new Date()).getTime();
+				var elapsed = now - start;
+				var fraction = elapsed / time;
+				if (fraction < 1) {
+					var opacity = 1 - ease(fraction);
+
+					e.style.opacity = String(opacity);
+
+					setTimeout(animate, Math.min(25, time - elapsed));
+				}
 			}
 		}
-	}
-</script>
-<button onclick="shake(this)">点击我吧</button>
-<button onclick="fadeIn('fade')">消失</button>
-<button onclick="fadeOut('fade')">出现</button>
-<p id="fade">
-	function fadeOut(e,time){
-		if(typeof e==="string")
-			e=document.getElementById(e);
-		if(!time){
-			time=500;
-		}
-	
-		var originalStyle=e.style.cssText;
-		var ease=Math.sqrt;
-	
-		var start=(new Date()).getTime();
-		animate();
-		function animate(){
-			var now=(new Date()).getTime();
-			var elapsed=now-start;
-			var fraction=elapsed/time;
-			if(fraction<1){
-				var opacity=1-ease(fraction);
-				
-				e.style.opacity=String(opacity);
-				
-				setTimeout(animate, Math.min(25,time-elapsed));
+		function fadeOut(e, time) {
+			if (typeof e === "string")
+				e = document.getElementById(e);
+			if (!time) {
+				time = 2000;
 			}
-			else{
-				e.style.cssText=originalStyle;
+
+			var originalStyle = e.style.cssText;
+			var ease = Math.sqrt;
+
+			var start = (new Date()).getTime();
+			animate();
+			function animate() {
+				var now = (new Date()).getTime();
+				var elapsed = now - start;
+				var fraction = elapsed / time;
+				if (fraction < 1) {
+					var opacity = ease(fraction);
+					e.style.opacity = String(opacity);
+					setTimeout(animate, Math.min(25, time - elapsed));
+				}
 			}
 		}
-	}
-</p>
+	</script>
+	<button onclick="shake(this)">点击我吧</button>
+	<button onclick="fadeIn('fade')">消失</button>
+	<button onclick="fadeOut('fade')">出现</button>
+	<p id="fade">function fadeOut(e,time){ if(typeof e==="string")
+		e=document.getElementById(e); if(!time){ time=500; } var
+		originalStyle=e.style.cssText; var ease=Math.sqrt; var start=(new
+		Date()).getTime(); animate(); function animate(){ var now=(new
+		Date()).getTime(); var elapsed=now-start; var fraction=elapsed/time;
+		if(fraction<1){ var opacity=1-ease(fraction);
+
+		e.style.opacity=String(opacity); setTimeout(animate,
+		Math.min(25,time-elapsed)); } else{ e.style.cssText=originalStyle; } }
+		}</p>
 </body>
 </html>

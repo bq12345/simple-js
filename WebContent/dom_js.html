@@ -28,17 +28,40 @@
 		element.appendChild(para);
 		console.log(element.childNodes[0].nodeValue);
 	</script>
-	
+
 	<div onmouseover="mOver(this)" onmouseout="mOut(this)"
 		style="background-color: #D94A38; width: 200px; height: 50px; padding-top: 25px; text-align: center;">
 		Mouse Over Me</div>
 
 	<script>
 		function mOver(obj) {
-			obj.innerHTML = "谢谢你"
+			obj.innerHTML = "谢谢你";
+			console.log("width:"+obj.style.width);
+			var oldWidth=parseInt(obj.style.width);
+			var start=new Date().getTime();
+			animate();
+			function animate(){
+				var now=new Date().getTime();
+				var percent=(now-start)/2000;
+				if(percent<1){
+					obj.style.width=oldWidth+percent*200+"px";
+					setTimeout(animate,Math.min(25,2000-(now-start)));
+				}
+			};
 		}
 		function mOut(obj) {
-			obj.innerHTML = "把鼠标指针移动到上面"
+			obj.innerHTML = "把鼠标指针移动到上面";
+			var oldWidth=parseInt(obj.style.width);
+			var start=new Date().getTime();
+			animate();
+			function animate(){
+				var now=new Date().getTime();
+				var percent=(now-start)/2000;
+				if(percent<1){
+					obj.style.width=oldWidth-percent*200+"px";
+					setTimeout(animate,Math.min(25,2000-(now-start)));
+				}
+			};
 		}
 	</script>
 </body>
