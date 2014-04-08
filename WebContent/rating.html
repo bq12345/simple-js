@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>jquery评星</title>
+    <style type="text/css">
+        .dengji {
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+
+        .xing {
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+            width: 140px;
+            display: inline-block;
+            background: url("http://www.hyj.com/theme/hieiika/images/two_stars.gif") repeat-x 0 -32px;
+            float: left;
+        }
+
+        .xing ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .xing ul li {
+            height: 32px;
+            width: 28px;
+            float: left;
+            line-height: 32px;
+            overflow: hidden;
+            cursor: pointer;
+            z-index: 1000;
+            display: inline-block;
+            position: relative;
+            text-indent: -9999px;
+        }
+
+        .xing_chen {
+            background: url("ico/favicon.png") repeat-x 0 0;
+            height: 32px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            cursor: pointer;
+        }
+
+        .xing_show {
+            float: left;
+            line-height: 32px;
+            padding-left: 20px;
+        }
+
+        .xing_show span {
+            color: #f50;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 0 10px;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var $li = $(".xing ul li");
+            var $xing = $(".xing_chen");
+            var $xingNum = $(".xing_show");
+            //鼠标滑过事件
+            $li.mouseover(function () {
+                //设置xing_chen背景样式
+                $xing.css("width", $(this).attr("rate") * 28 + "px");
+                //设置当前评分数字
+                $xingNum.children("span").text($(this).attr("rate") * 20);
+            });
+            //鼠标离开事件
+            $li.mouseleave(function () {
+                //如果xing_show的属性rate为空时
+                if ($xingNum.attr("rate") == "") {
+                    //xing_chen的width样式为0
+                    $xing.css("width", "0");
+                } else {
+                    //否则设置xing_chen的样式width
+                    $xing.css("width", $xingNum.attr("rate") * 28 + "px");
+                    //设置xing_show的分数值
+                    $xingNum.children("span").text($xingNum.attr("rate") * 20);
+                }
+            });
+            //点击事件
+            $li.click(function () {
+                //设置xing_show的rate属性 及评分数值
+                $xingNum.attr("rate", $(this).text());
+                $xingNum.children("span").text($xingNum.attr("rate") * 20);
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="dengji">
+    <div class="xing">
+        <ul>
+            <li rate="1">1</li>
+            <li rate="2">2</li>
+            <li rate="3">3</li>
+            <li rate="4">4</li>
+            <li rate="5">5</li>
+        </ul>
+        <div class="xing_chen"></div>
+    </div>
+    <div class="xing_show" rate="1">当前评分为<span>0</span>分</div>
+</div>
+</body>
+</html>

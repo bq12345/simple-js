@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Demo</title>
+<style type="text/css">
+.tabs-nav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	padding-right: 6px;
+	padding-bottom: 16px;
+}
+
+.tabs-nav li {
+	float: left;
+	color: #444;
+	padding-right:10px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.tabs-nav li.tabs-selected {
+	background-color: #7A991A;
+}
+
+.tabs-panel {
+	display: block;
+	width: 400px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #bebebe;
+	text-align: center;
+	padding: 4px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.tabs-hide {
+	display: none;
+}
+</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$(".tabs-nav > li > a").mouseover(
+				function(e) {
+					if (e.target == this) {
+						//找到所有的tabs
+						var tabs = $(this).parent().parent().children("li");
+						//找到所有的panels
+						var panels = $(this).parent().parent().parent()
+								.children(".tabs-panel");
+						//判断当前a的父元素li是否在tabs中 在的话返回下标|-1
+						var index = $.inArray($(this).parent()[0], tabs);
+						//panels 等于选项卡的下标就显示相应的panel
+						if (panels.eq(index)) {
+							tabs.removeClass("tabs-selected").eq(index)
+									.addClass("tabs-selected");
+							panels.addClass("tabs-hide").eq(index).removeClass(
+									"tabs-hide");
+						}
+					}
+				});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<ul class="tabs-nav">
+			<li class="tabs-selected"><a href="#">热点新闻</a></li>
+			<li><a href="#">个人相关</a></li>
+			<li><a href="#">最新回复</a></li>
+			<li><a href="#">杂七杂八</a></li>
+		</ul>
+		<div class="tabs-panel">
+			<p>4月5日,一个名不见经传的合天智汇公司发起了名为“XP挑战平台”的网络攻击赛</p>
+		</div>
+		<div class="tabs-panel tabs-hide">
+			<p>正在等待腾讯面试结果</p>
+		</div>
+		<div class="tabs-panel tabs-hide">
+			<p>难道从hr变到人才库吗</p>
+		</div>
+		<div class="tabs-panel tabs-hide">
+			<p>腾讯太让人焦虑了</p>
+		</div>
+	</div>
+	<!-- 选项卡DIV---END -->
+</body>
+</html>

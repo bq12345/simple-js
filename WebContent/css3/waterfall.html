@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3瀑布流</title>
+<style>
+body {
+	background-color: #444;
+}
+
+img {
+	border: 5 solid #ffCCCC;
+}
+
+.imgdiv {
+	border: 5 solid #ffCCCC;
+	border-radius: 5px;
+}
+
+.main {
+	-webkit-column-width: 160px;
+	-moz-column-width: 160px;
+	-o-colum-width: 160px;
+	-webkit-column-gap: 1px;
+	-moz-column-gap: 1px;
+	-o-column-gap: 1px;
+	margin-top: 100px;
+	-moz-column-count: 2; /* Firefox */
+	-webkit-column-count: 2; /* Safari and Chrome */
+	column-count: 2;
+	-moz-column-gap: 20px; /* Firefox */
+	-webkit-column-gap: 20px; /* Safari and Chrome */
+}
+
+.main:before {
+	width: 50px;
+	height: 50px;
+	top: 0;
+	right: 0;
+	position: absolute;
+	display: inline-block;
+	z-index: -1;
+	-webkit-box-shadow: 10px -10px 8px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 10px -10px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: 10px -10px 8px rgba(0, 0, 0, 0.2);
+	-webkit-transform: rotate(2deg) translate(-14px, 20px) skew(-20deg);
+	-moz-transform: rotate(2deg) translate(-14px, 20px) skew(-20deg);
+	-o-transform: rotate(2deg) translate(-14px, 20px) skew(-20deg);
+	transform: rotate(2deg) translate(-14px, 20px) skew(-20deg);
+}
+
+.main:after {
+	width: 100px;
+	height: 100px;
+	top: 0;
+	left: 0;
+	position: absolute;
+	z-index: -1;
+	display: inline-block;
+	-webkit-box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.2);
+	-webkit-transform: rotate(2deg) translate(20px, 25px) skew(20deg);
+	-moz-transform: rotate(2deg) translate(20px, 25px) skew(20deg);
+	-o-transform: rotate(2deg) translate(20px, 25px) skew(20deg);
+	transform: rotate(2deg) translate(20px, 25px) skew(20deg);
+}
+</style>
+<script type="text/javascript"
+	src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="data.js"></script>
+</head>
+<body>
+
+	<div class="main" id="main"></div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			search();
+		});
+
+		function search() {
+			$.each(images, function(i, item) {
+				console.log('item: ' + item);
+				$('<div class="imgdiv"><img src='+item+'></div>').appendTo(
+						'#main');
+			});
+		}
+		$(document).scroll(
+				function() {
+					var r = $(document).scrollTop() >= $(document).height()
+							- $(window).height();
+					if (r) {
+						search();
+					}
+				});
+	</script>
+</body>
+</html>
+

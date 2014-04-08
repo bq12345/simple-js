@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var parser = document.createElement('a');
+		parser.href = "http://localhost:8888/search?wd=s#top";
+		console.log(parser.protocol); // => "http:"
+		console.log(parser.host); // => "localhost:8888"
+		console.log(parser.hostname); // => "localhost"
+		console.log(parser.port); // => "8888"
+		console.log(parser.pathname); // => "/search"
+		console.log(parser.hash); // => "#top"
+		console.log(parser.search); // => "?wd=s"
+	</script>
+</body>
+</html>

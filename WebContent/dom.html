@@ -5,12 +5,12 @@
 <title>DOM</title>
 <script type="text/javascript">
 	function check() {
-		document.getElementById("first").action="index.html";
+		document.getElementById("first").action = "index.html";
 		return false;
-	}
+	};
 </script>
 </head>
-<body onmousedown="whichButton(event)">
+<body>
 	<button onclick="change()">点击</button>
 	<div id="div"></div>
 	<form action="#" name="main" id="first" onsubmit="return check()">
@@ -51,6 +51,7 @@
 				getElementById("text").accessKey = "w";
 			}
 		}
+		document.addEventListener("mousedown", whichButton, false);
 		console.log(document.title);
 		console.log(document.URL);
 		console.log(document.forms[0].name);
